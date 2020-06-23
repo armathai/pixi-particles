@@ -1,3 +1,4 @@
+//@ts-ignore
 export class Burnout extends PIXI.particles.core.ParticleEffect {
     constructor() {
         super(require('../../assets/effects/burnout.json'));

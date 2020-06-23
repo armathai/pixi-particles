@@ -3,6 +3,6 @@ configs/*
 scripts/*
 bin/*
 dist/*
-src/__examples__/ts
-src/__test__
-typings
+typings/*
+src/__test__/*
+src/__examples__/ts/*
