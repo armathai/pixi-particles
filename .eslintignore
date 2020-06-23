@@ -1,0 +1,8 @@
+node_modules/*
+configs/*
+scripts/*
+bin/*
+dist/*
+src/__examples__/ts
+src/__test__
+typings

@@ -1,0 +1,17 @@
+{
+    "compilerOptions": {
+        "target": "es5",
+        "module": "none",
+        "outFile": "bin/pixi-particles.js",
+        "emitDecoratorMetadata": true,
+        "experimentalDecorators": true,
+        "sourceMap": true,
+        "preserveConstEnums": true,
+        "removeComments": true,
+        "inlineSources": true,
+        "declaration": true,
+        "skipLibCheck": true
+    },
+    "include": ["src/**/*.ts", "src/*.ts"],
+    "exclude": ["node_modules/**/*", "bin/*", "src/__examples__/ts/**/*.ts"]
+}
