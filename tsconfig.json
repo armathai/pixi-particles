@@ -12,6 +12,12 @@
         "declaration": true,
         "skipLibCheck": true
     },
-    "include": ["src/com/armathai/pixiparticles/**/*.ts", "src/com/armathai/pixiparticles/*.ts"],
-    "exclude": ["node_modules/**/*", "bin/*", "src/__examples__/ts/**/*.ts"]
+    "include": ["src/**/*.ts", "src/*.ts"],
+    "exclude": [
+        "node_modules/**/*",
+        "bin/*",
+        "src/__examples__/ts/**/*.ts",
+        "src/__test__/**/*.ts",
+        "src/__test__/*.ts"
+    ]
 }

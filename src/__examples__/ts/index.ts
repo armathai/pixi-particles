@@ -1,7 +1,6 @@
 /* eslint-disable @typescript-eslint/ban-ts-ignore */
-/// <reference types="../../../bin/pixi-particles.min.js" />
-// @ts-ignore
-import '../../../bin/pixi-particles.min';
+/// <reference types="../../../bin/pixi-particles.js" />
+import '../../../bin/pixi-particles';
 // import { Default } from './effects/default';
 // import { Burnout } from './effects/burnout';
 // import { Dust } from './effects/dust';
