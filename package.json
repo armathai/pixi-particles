@@ -23,8 +23,8 @@
         "pixijs",
         "pixi.js",
         "pixi",
-        "stats",
-        "statsjs"
+        "particles",
+        "effects"
     ],
     "author": "armathai LLC",
     "license": "MIT",
