@@ -1,6 +1,6 @@
 {
     "name": "@armathai/pixi-particles",
-    "version": "1.0.1",
+    "version": "1.0.2",
     "description": "Pixi Performance Monitor",
     "main": "bin/pixi-particles.js",
     "types": "bin/pixi-particles.d.ts",
