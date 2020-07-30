@@ -77,40 +77,40 @@ namespace pixiparticles.core {
         private _aligned = false;
         private _additive = true;
 
-        public constructor(container: PIXI.Container, name: string, emitterConfig: any) {
+        public constructor(container: PIXI.Container, name: string, emitterConfig: ParticleEmitterConfig) {
             this._initialize();
             this._container = container;
             this.name = name;
             const { options } = emitterConfig;
-            this._attached = options['attached'];
-            this.continuous = options['continuous'];
-            this._aligned = options['aligned'];
-            this._additive = options['additive'];
-            this._spriteMode = options['spriteMode'];
-            this._delayValue.init(emitterConfig['delay']);
-            this._durationValue.init(emitterConfig['duration']);
+            this._attached = options.attached;
+            this.continuous = options.continuous;
+            this._aligned = options.aligned;
+            this._additive = options.additive;
+            this._spriteMode = options.spriteMode;
+            this._delayValue.init(emitterConfig.delay);
+            this._durationValue.init(emitterConfig.duration);
             const { count } = emitterConfig;
-            this.setMaxParticleCount(count['max']);
-            this.setMinParticleCount(count['min']);
-            this._emissionValue.init(emitterConfig['emission']);
-            this._lifeValue.init(emitterConfig['life']);
-            this._lifeOffsetValue.init(emitterConfig['life']['offset']);
-            this._xOffsetValue.init(emitterConfig['offset']['x']);
-            this._yOffsetValue.init(emitterConfig['offset']['y']);
-            this._spawnShapeValue.init(emitterConfig['spawn']);
-            this._spawnWidthValue.init(emitterConfig['spawn']['width']);
-            this._spawnHeightValue.init(emitterConfig['spawn']['height']);
-            this._xScaleValue.init(emitterConfig['scale']['x']);
-            this._yScaleValue.init(emitterConfig['scale']['y']);
-            this._velocityValue.init(emitterConfig['velocity']);
-            this._angleValue.init(emitterConfig['angle']);
-            this._rotationValue.init(emitterConfig['rotation']);
-            this._windValue.init(emitterConfig['wind']);
-            this._gravityValue.init(emitterConfig['gravity']);
-            this._tintValue.init(emitterConfig['tint']);
-            this._transparencyValue.init(emitterConfig['transparency']);
+            this.setMaxParticleCount(count.max);
+            this.setMinParticleCount(count.min);
+            this._emissionValue.init(emitterConfig.emission);
+            this._lifeValue.init(emitterConfig.life);
+            this._lifeOffsetValue.init(emitterConfig.life.offset);
+            this._xOffsetValue.init(emitterConfig.offset.x);
+            this._yOffsetValue.init(emitterConfig.offset.y);
+            this._spawnShapeValue.init(emitterConfig.spawn);
+            this._spawnWidthValue.init(emitterConfig.spawn.width);
+            this._spawnHeightValue.init(emitterConfig.spawn.height);
+            this._xScaleValue.init(emitterConfig.scale.x);
+            this._yScaleValue.init(emitterConfig.scale.y);
+            this._velocityValue.init(emitterConfig.velocity);
+            this._angleValue.init(emitterConfig.angle);
+            this._rotationValue.init(emitterConfig.rotation);
+            this._windValue.init(emitterConfig.wind);
+            this._gravityValue.init(emitterConfig.gravity);
+            this._tintValue.init(emitterConfig.tint);
+            this._transparencyValue.init(emitterConfig.transparency);
             const { textures } = emitterConfig;
-            this.setTextures(textures.map(t => PIXI.Texture.from(t)));
+            this.setTextures(textures.map((t) => PIXI.Texture.from(t)));
         }
 
         public setMaxParticleCount(maxParticleCount: number): void {
@@ -629,12 +629,6 @@ namespace pixiparticles.core {
                 const frame = Math.min(percent * this.sprites.length, this.sprites.length - 1);
                 if (particle.frame !== frame) {
                     const sprite = this.sprites[frame];
-                    // const prevSpriteWidth = particle.getWidth();
-                    // const prevSpriteHeight = particle.getHeight();
-                    // particle.setRegion(sprite);
-                    // particle.setSize(sprite.getWidth(), sprite.getHeight());
-                    // particle.setOrigin(sprite.getOriginX(), sprite.getOriginY());
-                    // particle.translate((prevSpriteWidth - sprite.getWidth()) / 2, (prevSpriteHeight - sprite.getHeight()) / 2);
                     particle.texture = sprite;
                 }
             }

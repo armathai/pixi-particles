@@ -41,6 +41,10 @@ module.exports = {
                 format: ['PascalCase'],
             },
         ],
+        '@typescript-eslint/no-unused-vars': [
+            'error',
+            { varsIgnorePattern: '(pixiparticles|core|values|constants|utils)' },
+        ],
         '@typescript-eslint/explicit-function-return-type': ['error', { allowExpressions: true }],
         '@typescript-eslint/member-ordering': [
             'error',

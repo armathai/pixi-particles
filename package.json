@@ -11,7 +11,7 @@
         "uglify": "node scripts/uglify.js",
         "build": "tsc && npm run make:dts && npm run uglify",
         "format": "prettier --write \"src/**/*.ts\" \"src/**/*.js\"",
-        "lint": "tsc --noEmit && eslint '*/**/*.{js,ts,ts}' --quiet --fix",
+        "lint": "tsc --noEmit && eslint '*/**/*.{js,ts,ts}'  --fix",
         "prepare": "npm run build --scripts-prepend-node-path",
         "prepublishOnly": "npm test && npm run lint"
     },

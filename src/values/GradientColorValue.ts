@@ -1,6 +1,11 @@
 /// <reference path="./Value.ts" />
 
 namespace pixiparticles.values {
+    export type GradientColorValueType = ValueType & {
+        colorsCount: number;
+        timelineCount: number;
+    };
+
     export class GradientColorValue extends Value {
         private static _temp: number[] = [0, 0, 0, 0];
 
@@ -44,12 +49,12 @@ namespace pixiparticles.values {
             return GradientColorValue._temp;
         }
 
-        public init(value: any): void {
+        public init(value: GradientColorValueType): void {
             super.init(value);
             if (!this.active) return;
-            const colorsCount = value['colorsCount'];
+            const colorsCount = value.colorsCount;
             for (let i = 0; i < colorsCount; i++) this.colors[i] = value['colors' + i];
-            const timelineCount = value['timelineCount'];
+            const timelineCount = value.timelineCount;
             for (let i = 0; i < timelineCount; i++) this.timeline[i] = value['timeline' + i];
         }
     }

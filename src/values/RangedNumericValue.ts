@@ -1,6 +1,9 @@
-/// <reference path="./Value.ts" />
-
 namespace pixiparticles.values {
+    export type RangedNumericValueType = ValueType & {
+        lowMin: number;
+        lowMax: number;
+    };
+
     export class RangedNumericValue extends Value {
         public lowMin: number;
         public lowMax: number;
@@ -20,10 +23,10 @@ namespace pixiparticles.values {
             this.lowMax *= scale;
         }
 
-        public init(value: any): void {
+        public init(value: RangedNumericValueType): void {
             super.init(value);
-            this.lowMin = value['lowMin']; // json.readValue('lowMin', float.class, jsonData);
-            this.lowMax = value['lowMax']; //json.readValue('lowMax', float.class, jsonData);
+            this.lowMin = value.lowMin;
+            this.lowMax = value.lowMax;
         }
     }
 }

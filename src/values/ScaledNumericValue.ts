@@ -1,6 +1,14 @@
 /// <reference path="./RangedNumericValue.ts" />
 
 namespace pixiparticles.values {
+    export type ScaledNumericValueType = RangedNumericValueType & {
+        highMin: number;
+        highMax: number;
+        relative: boolean;
+        scalingCount: number;
+        timelineCount: number;
+    };
+
     export class ScaledNumericValue extends RangedNumericValue {
         public scaling: number[] = [1];
         public timeline: number[] = [0];
@@ -49,16 +57,16 @@ namespace pixiparticles.values {
             );
         }
 
-        public init(value: any): void {
+        public init(value: ScaledNumericValueType): void {
             super.init(value);
             if (!this.active) return;
-            this.highMin = value['highMin'];
-            this.highMax = value['highMax'];
-            this.relative = value['relative'];
-            const scalingCount = value['scalingCount'];
+            this.highMin = value.highMin;
+            this.highMax = value.highMax;
+            this.relative = value.relative;
+            const scalingCount = value.scalingCount;
             this.scaling = [];
             for (let i = 0; i < scalingCount; i++) this.scaling.push(value['scaling' + i]);
-            const timelineCount = value['timelineCount'];
+            const timelineCount = value.timelineCount;
             this.timeline = [];
             for (let i = 0; i < timelineCount; i++) this.timeline.push(value['timeline' + i]);
         }

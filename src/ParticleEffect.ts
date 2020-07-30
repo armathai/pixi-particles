@@ -1,12 +1,11 @@
 namespace pixiparticles.core {
     export class ParticleEffect extends PIXI.Container {
         private readonly _emitters: ParticleEmitter[];
-        private _ownsTexture: boolean;
 
-        public constructor(config: any) {
+        public constructor(config: ParticleEffectConfig) {
             super();
             this._emitters = [];
-            Object.keys(config).forEach(e => {
+            Object.keys(config).forEach((e) => {
                 const emitter = this.newEmitter(e, config[e]);
                 this._emitters.push(emitter);
             });
@@ -63,20 +62,19 @@ namespace pixiparticles.core {
 
         /** Allocates all emitters particles. See {@link com.badlogic.gdx.graphics.g2d.ParticleEmitter#preAllocateParticles()} */
         public preAllocateParticles(): void {
-            this._emitters.forEach(e => e.preAllocateParticles());
+            this._emitters.forEach((e) => e.preAllocateParticles());
         }
 
         /** Disposes the texture for each sprite for each ParticleEmitter. */
         public destroy(): void {
-            if (!this._ownsTexture) return;
             for (let i = 0, n = this._emitters.length; i < n; i++) {
                 const emitter = this._emitters[i];
-                emitter.sprites.forEach(s => s.destroy());
+                emitter.sprites.forEach((s) => s.destroy());
             }
             super.destroy();
         }
 
-        protected newEmitter(name: string, emitterConfig: any): ParticleEmitter {
+        protected newEmitter(name: string, emitterConfig: ParticleEmitterConfig): ParticleEmitter {
             return new ParticleEmitter(this, name, emitterConfig);
         }
     }

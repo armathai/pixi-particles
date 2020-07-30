@@ -1,18 +1,24 @@
 /// <reference path="./Value.ts" />
 
 namespace pixiparticles.values {
+    export type SpawnShapeValueType = ValueType & {
+        shape: constants.SpawnShape;
+        edges: boolean;
+        side: constants.SpawnEllipseSide;
+    };
+
     export class SpawnShapeValue extends Value {
         public shape: constants.SpawnShape = constants.SpawnShape.point;
         public edges: boolean;
         public side: constants.SpawnEllipseSide = constants.SpawnEllipseSide.both;
 
-        public init(value: any): void {
+        public init(value: SpawnShapeValueType): void {
             super.init(value);
             if (!this.active) return;
-            this.shape = value['shape'];
-            if (this.shape == constants.SpawnShape.ellipse) {
-                this.edges = value['edges'];
-                this.side = value['side'];
+            this.shape = value.shape;
+            if (this.shape === constants.SpawnShape.ellipse) {
+                this.edges = value.edges;
+                this.side = value.side;
             }
         }
     }
