@@ -1,7 +1,10 @@
-//@ts-ignore
+/// <reference path="../../../../bin/pixi-particles.d.ts" />
+
+import config from '../../assets/effects/fireworks-tracer.json';
+
 export class FireworksTracer extends PIXI.particles.core.ParticleEffect {
-    constructor() {
-        super(require('../../assets/effects/fireworks-tracer.json'));
+    public constructor() {
+        super(config);
     }
 
     public get duration(): number {

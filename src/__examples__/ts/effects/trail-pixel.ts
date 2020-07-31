@@ -1,7 +1,10 @@
-//@ts-ignore
+/// <reference path="../../../../bin/pixi-particles.d.ts" />
+
+import config from '../../assets/effects/trail-pixel.json';
+
 export class TrailPixel extends PIXI.particles.core.ParticleEffect {
-    constructor() {
-        super(require('../../assets/effects/trail-pixel.json'));
+    public constructor() {
+        super(config);
     }
 
     public get duration(): number {

@@ -3,8 +3,8 @@
 namespace pixiparticles.values {
     export type SpawnShapeValueType = ValueType & {
         shape: constants.SpawnShape;
-        edges: boolean;
-        side: constants.SpawnEllipseSide;
+        edges?: boolean;
+        side?: constants.SpawnEllipseSide;
     };
 
     export class SpawnShapeValue extends Value {

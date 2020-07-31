@@ -1,7 +1,10 @@
-//@ts-ignore
+/// <reference path="../../../../bin/pixi-particles.d.ts" />
+
+import config from '../../assets/effects/flame-pixel.json';
+
 export class FlamePixel extends PIXI.particles.core.ParticleEffect {
-    constructor() {
-        super(require('../../assets/effects/flame-pixel.json'));
+    public constructor() {
+        super(config);
     }
 
     public get duration(): number {

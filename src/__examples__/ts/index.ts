@@ -1,4 +1,5 @@
-/* eslint-disable @typescript-eslint/ban-ts-ignore */
+/* eslint-disable @typescript-eslint/ban-ts-comment */
+/* eslint-disable @typescript-eslint/no-var-requires */
 /// <reference types="../../../bin/pixi-particles.js" />
 import '../../../bin/pixi-particles';
 // import { Default } from './effects/default';
@@ -46,11 +47,11 @@ import '../../../bin/pixi-particles';
 import { Confetti } from './effects/confetti';
 
 class Game extends PIXI.Application {
-    static readonly EFFECT = Confetti;
+    private static readonly _effect = Confetti;
     private _effect: PIXI.particles.core.ParticleEffect;
     public constructor() {
         super({ resizeTo: window, backgroundColor: 0x000000 });
-        document.getElementById('gameContainer')?.appendChild(this.view);
+        document.getElementById('gameContainer').appendChild(this.view);
         this.loader
             .add('default.png', require('../assets/particles/default.png'))
             .add('explosion-1.png', require('../assets/particles/explosion-1.png'))
@@ -91,9 +92,9 @@ class Game extends PIXI.Application {
             .add('confetti5.png', require('../assets/particles/confetti5.png'))
             .add('confetti6.png', require('../assets/particles/confetti6.png'))
             .load(() => {
-                const effect = new Game.EFFECT();
+                const effect = new Game._effect();
                 effect.start();
-                this.ticker.add(delta => {
+                this.ticker.add(() => {
                     effect.update(this.ticker.deltaMS);
                 });
                 // setInterval(() => {

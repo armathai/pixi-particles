@@ -2,11 +2,11 @@
 
 namespace pixiparticles.values {
     export type ScaledNumericValueType = RangedNumericValueType & {
-        highMin: number;
-        highMax: number;
-        relative: boolean;
-        scalingCount: number;
-        timelineCount: number;
+        highMin?: number;
+        highMax?: number;
+        relative?: boolean;
+        scalingCount?: number;
+        timelineCount?: number;
     };
 
     export class ScaledNumericValue extends RangedNumericValue {

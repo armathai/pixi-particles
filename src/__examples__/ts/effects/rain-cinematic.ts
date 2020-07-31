@@ -1,7 +1,10 @@
-//@ts-ignore
+/// <reference path="../../../../bin/pixi-particles.d.ts" />
+
+import config from '../../assets/effects/rain-cinematic.json';
+
 export class RainCinematic extends PIXI.particles.core.ParticleEffect {
-    constructor() {
-        super(require('../../assets/effects/rain-cinematic.json'));
+    public constructor() {
+        super(config);
     }
 
     public get duration(): number {

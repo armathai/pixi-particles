@@ -1,7 +1,7 @@
 namespace pixiparticles.values {
     export type RangedNumericValueType = ValueType & {
-        lowMin: number;
-        lowMax: number;
+        lowMin?: number;
+        lowMax?: number;
     };
 
     export class RangedNumericValue extends Value {

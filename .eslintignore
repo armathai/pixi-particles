@@ -5,4 +5,3 @@ bin/*
 dist/*
 typings/*
 src/__test__/*
-src/__examples__/ts/*

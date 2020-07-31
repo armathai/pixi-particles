@@ -1,7 +1,10 @@
-//@ts-ignore
+/// <reference path="../../../../bin/pixi-particles.d.ts" />
+
+import config from '../../assets/effects/hallucinogen.json';
+
 export class Hallucinogen extends PIXI.particles.core.ParticleEffect {
-    constructor() {
-        super(require('../../assets/effects/hallucinogen.json'));
+    public constructor() {
+        super(config);
     }
 
     public get duration(): number {

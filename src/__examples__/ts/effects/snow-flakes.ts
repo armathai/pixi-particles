@@ -1,7 +1,10 @@
-//@ts-ignore
+/// <reference path="../../../../bin/pixi-particles.d.ts" />
+
+import config from '../../assets/effects/snow-flakes.json';
+
 export class SnowFlakes extends PIXI.particles.core.ParticleEffect {
-    constructor() {
-        super(require('../../assets/effects/snow-flakes.json'));
+    public constructor() {
+        super(config);
     }
 
     public get duration(): number {

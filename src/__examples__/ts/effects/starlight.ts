@@ -1,7 +1,10 @@
-//@ts-ignore
+/// <reference path="../../../../bin/pixi-particles.d.ts" />
+
+import config from '../../assets/effects/starlight.json';
+
 export class Starlight extends PIXI.particles.core.ParticleEffect {
-    constructor() {
-        super(require('../../assets/effects/starlight.json'));
+    public constructor() {
+        super(config);
     }
 
     public get duration(): number {

@@ -1,7 +1,10 @@
-//@ts-ignore
+/// <reference path="../../../../bin/pixi-particles.d.ts" />
+
+import config from '../../assets/effects/thrust.json';
+
 export class Thrust extends PIXI.particles.core.ParticleEffect {
-    constructor() {
-        super(require('../../assets/effects/thrust.json'));
+    public constructor() {
+        super(config);
     }
 
     public get duration(): number {

@@ -1,7 +1,7 @@
 namespace pixiparticles.values {
     export type ValueType = {
-        active: boolean;
-        alwaysActive: boolean;
+        active?: boolean;
+        alwaysActive?: boolean;
     };
 
     export class Value {

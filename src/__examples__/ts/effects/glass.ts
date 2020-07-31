@@ -1,7 +1,10 @@
-//@ts-ignore
+/// <reference path="../../../../bin/pixi-particles.d.ts" />
+
+import config from '../../assets/effects/glass.json';
+
 export class Glass extends PIXI.particles.core.ParticleEffect {
-    constructor() {
-        super(require('../../assets/effects/glass.json'));
+    public constructor() {
+        super(config);
     }
 
     public get duration(): number {

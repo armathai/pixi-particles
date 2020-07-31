@@ -1,7 +1,10 @@
-//@ts-ignore
+/// <reference path="../../../../bin/pixi-particles.d.ts" />
+
+import config from '../../assets/effects/dust-right.json';
+
 export class DustRight extends PIXI.particles.core.ParticleEffect {
-    constructor() {
-        super(require('../../assets/effects/dust-right.json'));
+    public constructor() {
+        super(config);
     }
 
     public get duration(): number {

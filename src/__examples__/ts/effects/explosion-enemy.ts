@@ -1,7 +1,10 @@
-//@ts-ignore
+/// <reference path="../../../../bin/pixi-particles.d.ts" />
+
+import config from '../../assets/effects/explosion-enemy.json';
+
 export class ExplosionEnemy extends PIXI.particles.core.ParticleEffect {
-    constructor() {
-        super(require('../../assets/effects/explosion-enemy.json'));
+    public constructor() {
+        super(config);
     }
 
     public get duration(): number {

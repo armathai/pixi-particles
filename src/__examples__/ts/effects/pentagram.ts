@@ -1,7 +1,10 @@
-//@ts-ignore
+/// <reference path="../../../../bin/pixi-particles.d.ts" />
+
+import config from '../../assets/effects/pentagram.json';
+
 export class Pentagram extends PIXI.particles.core.ParticleEffect {
-    constructor() {
-        super(require('../../assets/effects/pentagram.json'));
+    public constructor() {
+        super(config);
     }
 
     public get duration(): number {
