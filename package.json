@@ -17,7 +17,7 @@
         "prepublishOnly": "npm test && npm run lint"
     },
     "repository": {
-        "url": "git@github.com:armathai/pixi-stats.git"
+        "url": "git@github.com:armathai/pixi-particles.git"
     },
     "keywords": [
         "pixijs5",
@@ -29,7 +29,7 @@
     ],
     "author": "armathai LLC",
     "license": "MIT",
-    "homepage": "https://github.com/armathai/pixi-stats#readme",
+    "homepage": "https://github.com/armathai/pixi-particles#readme",
     "peerDependencies": {
         "pixi.js": ">=5.0.0"
     },
