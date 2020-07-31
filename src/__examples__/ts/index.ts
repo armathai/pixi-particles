@@ -100,7 +100,7 @@ class Game extends PIXI.Application {
     public async init(): Promise<void> {
         await this._load();
         this._addButtons();
-        this._initEffect(40);
+        this._initEffect(13);
         this.ticker.add(() => {
             this._effect.update(this.ticker.deltaMS);
         });
