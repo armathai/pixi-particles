@@ -1,7 +1,7 @@
 {
     "name": "@armathai/pixi-particles",
     "version": "1.0.2",
-    "description": "Pixi Performance Monitor",
+    "description": "Particle emitter for Pixi.js",
     "main": "bin/pixi-particles.js",
     "types": "bin/pixi-particles.d.ts",
     "scripts": {
@@ -30,6 +30,9 @@
     "author": "armathai LLC",
     "license": "MIT",
     "homepage": "https://github.com/armathai/pixi-stats#readme",
+    "peerDependencies": {
+        "pixi.js": ">=5.0.0"
+    },
     "devDependencies": {
         "@types/jest": "^26.0.8",
         "@types/node": "^14.0.27",
