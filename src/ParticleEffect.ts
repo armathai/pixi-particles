@@ -12,39 +12,32 @@ namespace pixiparticles.core {
         }
 
         public start(): void {
-            for (let i = 0, n = this._emitters.length; i < n; i++) this._emitters[i].start();
+            this._emitters.forEach((e) => e.start());
         }
 
-        /** Resets the effect so it can be started again like a new effect.
-         * @param resetScaling Whether to restore the original size and motion parameters if they were scaled. Repeated scaling and
-         *           resetting may introduce error. */
+        /** Resets the effect so it can be started again like a new effect. */
         public reset(): void {
-            for (let i = 0, n = this._emitters.length; i < n; i++) this._emitters[i].reset();
+            this._emitters.forEach((e) => e.reset());
         }
 
         public update(delta: number): void {
-            for (let i = 0, n = this._emitters.length; i < n; i++) this._emitters[i].update(delta);
+            this._emitters.forEach((e) => e.update(delta));
         }
 
         public allowCompletion(): void {
-            for (let i = 0, n = this._emitters.length; i < n; i++) this._emitters[i].allowCompletion();
+            this._emitters.forEach((e) => e.allowCompletion());
         }
 
         public isComplete(): boolean {
-            for (let i = 0, n = this._emitters.length; i < n; i++) {
-                const emitter = this._emitters[i];
-                if (!emitter.isComplete()) return false;
-            }
-            return true;
+            return !this._emitters.find((e) => !e.isComplete());
         }
 
         public setDuration(duration: number): void {
-            for (let i = 0, n = this._emitters.length; i < n; i++) {
-                const emitter = this._emitters[i];
-                emitter.continuous = false;
-                emitter.duration = duration;
-                emitter.durationTimer = 0;
-            }
+            this._emitters.forEach((e) => {
+                e.continuous = false;
+                e.duration = duration;
+                e.durationTimer = 0;
+            });
         }
 
         public getEmitters(): ParticleEmitter[] {
@@ -53,25 +46,19 @@ namespace pixiparticles.core {
 
         /** Returns the emitter with the specified name, or null. */
         public findEmitter(name: string): ParticleEmitter {
-            for (let i = 0, n = this._emitters.length; i < n; i++) {
-                const emitter = this._emitters[i];
-                if (emitter.name === name) return emitter;
-            }
-            return null;
+            return this._emitters.find((e) => e.name === name);
         }
 
-        /** Allocates all emitters particles. See {@link com.badlogic.gdx.graphics.g2d.ParticleEmitter#preAllocateParticles()} */
+        /** Allocates all emitters particles. */
         public preAllocateParticles(): void {
             this._emitters.forEach((e) => e.preAllocateParticles());
         }
 
         /** Disposes the texture for each sprite for each ParticleEmitter. */
-        public destroy(): void {
-            for (let i = 0, n = this._emitters.length; i < n; i++) {
-                const emitter = this._emitters[i];
-                emitter.sprites.forEach((s) => s.destroy());
-            }
-            super.destroy();
+        public destroy(
+            options: { children?: boolean; texture?: boolean; baseTexture?: boolean } = { children: true },
+        ): void {
+            super.destroy(options);
         }
 
         protected newEmitter(name: string, emitterConfig: ParticleEmitterConfig): ParticleEmitter {

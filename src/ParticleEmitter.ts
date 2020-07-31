@@ -90,8 +90,8 @@ namespace pixiparticles.core {
             this._delayValue.init(emitterConfig.delay);
             this._durationValue.init(emitterConfig.duration);
             const { count } = emitterConfig;
-            this.setMaxParticleCount(count.max);
-            this.setMinParticleCount(count.min);
+            this._setMaxParticleCount(count.max);
+            this._setMinParticleCount(count.min);
             this._emissionValue.init(emitterConfig.emission);
             this._lifeValue.init(emitterConfig.life);
             this._lifeOffsetValue.init(emitterConfig.life.offset);
@@ -113,50 +113,6 @@ namespace pixiparticles.core {
             this.setTextures(textures.map((t) => PIXI.Texture.from(t)));
         }
 
-        public setMaxParticleCount(maxParticleCount: number): void {
-            this._maxParticleCount = maxParticleCount;
-            this._active = Array(...Array(maxParticleCount)).map(() => false);
-            this._activeCount = 0;
-            this._particles = Array(...Array(maxParticleCount)).map(() => new Particle(this._additive));
-        }
-
-        public setMinParticleCount(minParticleCount: number): void {
-            this._minParticleCount = minParticleCount;
-        }
-
-        public addParticle(): void {
-            const activeCount = this._activeCount;
-            if (activeCount === this._maxParticleCount) return;
-            const active = this._active;
-            for (let i = 0, n = active.length; i < n; i++) {
-                if (!active[i]) {
-                    this._activateParticle(i);
-                    active[i] = true;
-                    this._activeCount = activeCount + 1;
-                    break;
-                }
-            }
-        }
-
-        public addParticles(count: number): void {
-            count = Math.min(count, this._maxParticleCount - this._activeCount);
-            if (count == 0) return;
-            const active = this._active;
-            let index = 0;
-            const n = active.length;
-            outer: for (let i = 0; i < count; i++) {
-                for (; index < n; index++) {
-                    if (!active[index]) {
-                        this._activateParticle(index);
-                        active[index++] = true;
-                        continue outer;
-                    }
-                }
-                break;
-            }
-            this._activeCount += count;
-        }
-
         public update(delta: number): void {
             this._accumulator += delta;
             if (this._accumulator < 1) return;
@@ -169,7 +125,7 @@ namespace pixiparticles.core {
                 let done = false;
                 if (this._firstUpdate) {
                     this._firstUpdate = false;
-                    this.addParticle();
+                    this._addParticle();
                 }
                 if (this.durationTimer < this.duration) {
                     this.durationTimer += deltaMillis;
@@ -192,11 +148,11 @@ namespace pixiparticles.core {
                             emitCount = ~~Math.min(emitCount, this._maxParticleCount - this._activeCount);
                             this._emissionDelta -= emitCount * emissionTime;
                             this._emissionDelta %= emissionTime;
-                            this.addParticles(emitCount);
+                            this._addParticles(emitCount);
                         }
                     }
                     if (this._activeCount < this._minParticleCount) {
-                        this.addParticles(this._minParticleCount - this._activeCount);
+                        this._addParticles(this._minParticleCount - this._activeCount);
                     }
                 }
             }
@@ -217,9 +173,8 @@ namespace pixiparticles.core {
         public setTextures(sprites: PIXI.Texture[]): void {
             this.sprites = sprites;
             if (sprites.length === 0) return;
-            for (let i = 0, n = this._particles.length; i < n; i++) {
-                const particle = this._particles[i];
-                if (particle === null) break;
+            this._particles.forEach((particle) => {
+                if (particle === null) return;
                 let sprite = null;
                 switch (this._spriteMode) {
                     case constants.SpriteMode.single:
@@ -235,32 +190,28 @@ namespace pixiparticles.core {
                         break;
                 }
                 particle.texture = sprite;
-            }
+            });
         }
 
         public setSpriteMode(spriteMode: constants.SpriteMode): void {
             this._spriteMode = spriteMode;
         }
 
-        /**d
+        /**
          * Allocates max particles emitter can hold. Usually called early on to avoid allocation on updates.
-         * {@link #setSprites(Array)} must have been set before calling this method
          */
         public preAllocateParticles(): void {
             if (this.sprites.length === 0)
                 throw new Error('ParticleEmitter.setSprites() must have been called before preAllocateParticles()');
-            for (let index = 0; index < this._particles.length; index++) {
-                let particle = this._particles[index];
-                if (particle == null) {
-                    this._particles[index] = particle = this.newParticle(this.sprites[0]);
+            this._particles.forEach((particle, index) => {
+                if (particle === null) {
+                    this._particles[index] = particle = this._newParticle(this.sprites[0]);
                     particle.flip.x = this._flipX;
                     particle.flip.y = this._flipY;
                 }
-            }
+            });
         }
 
-        /** Ignores the {@link #setContinuous(boolean) continuous} setting until the emitter is started again. This allows the emitter
-         * to stop smoothly. */
         public allowCompletion(): void {
             this._allowCompletion = true;
             this.durationTimer = this.duration;
@@ -292,38 +243,52 @@ namespace pixiparticles.core {
             return Math.min(1, this.durationTimer / this.duration);
         }
 
-        protected newParticle(sprite: PIXI.Texture): Particle {
+        private _newParticle(sprite: PIXI.Texture): Particle {
             return new Particle(this._additive, sprite);
         }
 
-        protected getXSizeValues(): values.RangedNumericValue[] {
-            if (this._xSizeValues === null) {
-                this._xSizeValues = new values.RangedNumericValue[3]();
-                this._xSizeValues[0] = this._xScaleValue;
-                this._xSizeValues[1] = this._spawnWidthValue;
-                this._xSizeValues[2] = this._xOffsetValue;
-            }
-            return this._xSizeValues;
+        private _setMaxParticleCount(maxParticleCount: number): void {
+            this._maxParticleCount = maxParticleCount;
+            this._active = Array(...Array(maxParticleCount)).map(() => false);
+            this._activeCount = 0;
+            this._particles = Array(...Array(maxParticleCount)).map(() => new Particle(this._additive));
         }
 
-        protected getYSizeValues(): values.RangedNumericValue[] {
-            if (this._ySizeValues === null) {
-                this._ySizeValues = new values.RangedNumericValue[3]();
-                this._ySizeValues[0] = this._yScaleValue;
-                this._ySizeValues[1] = this._spawnHeightValue;
-                this._ySizeValues[2] = this._yOffsetValue;
-            }
-            return this._ySizeValues;
+        private _setMinParticleCount(minParticleCount: number): void {
+            this._minParticleCount = minParticleCount;
         }
 
-        protected getMotionValues(): values.RangedNumericValue[] {
-            if (this._motionValues === null) {
-                this._motionValues = new values.RangedNumericValue[3]();
-                this._motionValues[0] = this._velocityValue;
-                this._motionValues[1] = this._windValue;
-                this._motionValues[2] = this._gravityValue;
+        private _addParticle(): void {
+            const activeCount = this._activeCount;
+            if (activeCount === this._maxParticleCount) return;
+            const active = this._active;
+            for (let i = 0, n = active.length; i < n; i++) {
+                if (!active[i]) {
+                    this._activateParticle(i);
+                    active[i] = true;
+                    this._activeCount = activeCount + 1;
+                    break;
+                }
             }
-            return this._motionValues;
+        }
+
+        private _addParticles(count: number): void {
+            count = Math.min(count, this._maxParticleCount - this._activeCount);
+            if (count == 0) return;
+            const active = this._active;
+            let index = 0;
+            const n = active.length;
+            outer: for (let i = 0; i < count; i++) {
+                for (; index < n; index++) {
+                    if (!active[index]) {
+                        this._activateParticle(index);
+                        active[index++] = true;
+                        continue outer;
+                    }
+                }
+                break;
+            }
+            this._activeCount += count;
         }
 
         private _restart(): void {
@@ -389,7 +354,7 @@ namespace pixiparticles.core {
 
             let particle = this._particles[index];
             if (particle === null) {
-                this._particles[index] = particle = this.newParticle(sprite);
+                this._particles[index] = particle = this._newParticle(sprite);
                 particle.flip.x = this._flipX;
                 particle.flip.y = this._flipY;
             } else {
