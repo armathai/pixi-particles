@@ -11,3 +11,7 @@ A particle system library for the [PixiJS](https://github.com/pixijs/pixi.js) li
 $ npm install @armathai/pixi-particles # for npm users
 $ yarn add @armathai/pixi-particles # for yarn users
 ```
+
+# Examples
+
+Also, we created [examples](https://armathai.github.io/pixi-particles/) to preview custom particle emitters.
