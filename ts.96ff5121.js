@@ -165,82 +165,82 @@ module.exports={trail:{delay:{active:!1},duration:{lowMin:1e3,lowMax:1e3},count:
 },{}],"mpve":[function(require,module,exports) {
 "use strict";var t=this&&this.__extends||function(){var t=function(e,r){return(t=Object.setPrototypeOf||{__proto__:[]}instanceof Array&&function(t,e){t.__proto__=e}||function(t,e){for(var r in e)e.hasOwnProperty(r)&&(t[r]=e[r])})(e,r)};return function(e,r){function o(){this.constructor=e}t(e,r),e.prototype=null===r?Object.create(r):(o.prototype=r.prototype,new o)}}(),e=this&&this.__importDefault||function(t){return t&&t.__esModule?t:{default:t}};Object.defineProperty(exports,"__esModule",{value:!0}),exports.TrailPixel=void 0;var r=e(require("../../assets/effects/trail-pixel.json")),o=function(e){function o(){return e.call(this,r.default)||this}return t(o,e),Object.defineProperty(o.prototype,"duration",{get:function(){return 9999999999},enumerable:!1,configurable:!0}),o}(PIXI.particles.core.ParticleEffect);exports.TrailPixel=o;
 },{"../../assets/effects/trail-pixel.json":"oWKa"}],"M2TG":[function(require,module,exports) {
-module.exports="/default.a025414a.png";
+module.exports="default.a025414a.png";
 },{}],"Vc3g":[function(require,module,exports) {
-module.exports="/explosion-1.af478eda.png";
+module.exports="explosion-1.af478eda.png";
 },{}],"tJ14":[function(require,module,exports) {
-module.exports="/explosion-2.3f005637.png";
+module.exports="explosion-2.3f005637.png";
 },{}],"Ylob":[function(require,module,exports) {
-module.exports="/explosion-3.2f1ce5f7.png";
+module.exports="explosion-3.2f1ce5f7.png";
 },{}],"LPIv":[function(require,module,exports) {
-module.exports="/thrust-1.e9d75c04.png";
+module.exports="thrust-1.e9d75c04.png";
 },{}],"Jyfz":[function(require,module,exports) {
-module.exports="/thrust-2.903dbec3.png";
+module.exports="thrust-2.903dbec3.png";
 },{}],"mdPH":[function(require,module,exports) {
-module.exports="/thrust-3.bf187eb5.png";
+module.exports="thrust-3.bf187eb5.png";
 },{}],"JIeZ":[function(require,module,exports) {
-module.exports="/circle.4560016d.png";
+module.exports="circle.4560016d.png";
 },{}],"Aefm":[function(require,module,exports) {
-module.exports="/circle1.6b97a76b.png";
+module.exports="circle1.6b97a76b.png";
 },{}],"Ij1B":[function(require,module,exports) {
-module.exports="/circle2.4560016d.png";
+module.exports="circle2.4560016d.png";
 },{}],"indE":[function(require,module,exports) {
-module.exports="/circle3.03cd401b.png";
+module.exports="circle3.03cd401b.png";
 },{}],"c1hk":[function(require,module,exports) {
-module.exports="/circle4.efe40eb2.png";
+module.exports="circle4.efe40eb2.png";
 },{}],"T4zc":[function(require,module,exports) {
-module.exports="/cloud_1.900940fb.png";
+module.exports="cloud_1.900940fb.png";
 },{}],"VLIg":[function(require,module,exports) {
-module.exports="/firework.882f31b8.png";
+module.exports="firework.882f31b8.png";
 },{}],"BFss":[function(require,module,exports) {
-module.exports="/rect.2964ad82.png";
+module.exports="rect.2964ad82.png";
 },{}],"ACCR":[function(require,module,exports) {
-module.exports="/glass-1.6e46777e.png";
+module.exports="glass-1.6e46777e.png";
 },{}],"aqVV":[function(require,module,exports) {
-module.exports="/glass-2.c5168be7.png";
+module.exports="glass-2.c5168be7.png";
 },{}],"MUTY":[function(require,module,exports) {
-module.exports="/glass-3.aa60cbf1.png";
+module.exports="glass-3.aa60cbf1.png";
 },{}],"B0pJ":[function(require,module,exports) {
-module.exports="/glass-4.ceca9f90.png";
+module.exports="glass-4.ceca9f90.png";
 },{}],"y5vm":[function(require,module,exports) {
-module.exports="/glass-5.70a9f1d9.png";
+module.exports="glass-5.70a9f1d9.png";
 },{}],"bsT7":[function(require,module,exports) {
-module.exports="/glass-6.76e5e444.png";
+module.exports="glass-6.76e5e444.png";
 },{}],"JlXc":[function(require,module,exports) {
-module.exports="/neutron-full.91ec1944.png";
+module.exports="neutron-full.91ec1944.png";
 },{}],"oyEA":[function(require,module,exports) {
-module.exports="/neutron.a11fede6.png";
+module.exports="neutron.a11fede6.png";
 },{}],"F7rL":[function(require,module,exports) {
-module.exports="/dash.616cd89e.png";
+module.exports="dash.616cd89e.png";
 },{}],"gyv8":[function(require,module,exports) {
-module.exports="/pentagram.17c30e80.png";
+module.exports="pentagram.17c30e80.png";
 },{}],"GK2o":[function(require,module,exports) {
-module.exports="/pentagram-glow.302027c1.png";
+module.exports="pentagram-glow.302027c1.png";
 },{}],"BQ1h":[function(require,module,exports) {
-module.exports="/rain-cinematic.af4ce7b5.png";
+module.exports="rain-cinematic.af4ce7b5.png";
 },{}],"bvCN":[function(require,module,exports) {
-module.exports="/rain-blurred.ff67a3a8.png";
+module.exports="rain-blurred.ff67a3a8.png";
 },{}],"d77d":[function(require,module,exports) {
-module.exports="/snow-flake.cdf3c970.png";
+module.exports="snow-flake.cdf3c970.png";
 },{}],"je1y":[function(require,module,exports) {
-module.exports="/star-real.9f0a24fb.png";
+module.exports="star-real.9f0a24fb.png";
 },{}],"NHi9":[function(require,module,exports) {
-module.exports="/star_1.06e52a3c.png";
+module.exports="star_1.06e52a3c.png";
 },{}],"KRYV":[function(require,module,exports) {
-module.exports="/spark-colored.6dbb4002.png";
+module.exports="spark-colored.6dbb4002.png";
 },{}],"Ip6K":[function(require,module,exports) {
-module.exports="/confetti1.4a49cd01.png";
+module.exports="confetti1.4a49cd01.png";
 },{}],"gv8e":[function(require,module,exports) {
-module.exports="/confetti2.5f3a62b7.png";
+module.exports="confetti2.5f3a62b7.png";
 },{}],"UYUm":[function(require,module,exports) {
-module.exports="/confetti3.c7196c1e.png";
+module.exports="confetti3.c7196c1e.png";
 },{}],"n50s":[function(require,module,exports) {
-module.exports="/confetti4.e7c7e01a.png";
+module.exports="confetti4.e7c7e01a.png";
 },{}],"b0ec":[function(require,module,exports) {
-module.exports="/confetti5.6ce04992.png";
+module.exports="confetti5.6ce04992.png";
 },{}],"YB24":[function(require,module,exports) {
-module.exports="/confetti6.46229a8d.png";
+module.exports="confetti6.46229a8d.png";
 },{}],"LQOA":[function(require,module,exports) {
 "use strict";var e=this&&this.__extends||function(){var e=function(t,r){return(e=Object.setPrototypeOf||{__proto__:[]}instanceof Array&&function(e,t){e.__proto__=t}||function(e,t){for(var r in t)t.hasOwnProperty(r)&&(e[r]=t[r])})(t,r)};return function(t,r){function s(){this.constructor=t}e(t,r),t.prototype=null===r?Object.create(r):(s.prototype=r.prototype,new s)}}(),t=this&&this.__awaiter||function(e,t,r,s){return new(r||(r=Promise))(function(i,n){function a(e){try{l(s.next(e))}catch(t){n(t)}}function c(e){try{l(s.throw(e))}catch(t){n(t)}}function l(e){var t;e.done?i(e.value):(t=e.value,t instanceof r?t:new r(function(e){e(t)})).then(a,c)}l((s=s.apply(e,t||[])).next())})},r=this&&this.__generator||function(e,t){var r,s,i,n,a={label:0,sent:function(){if(1&i[0])throw i[1];return i[1]},trys:[],ops:[]};return n={next:c(0),throw:c(1),return:c(2)},"function"==typeof Symbol&&(n[Symbol.iterator]=function(){return this}),n;function c(n){return function(c){return function(n){if(r)throw new TypeError("Generator is already executing.");for(;a;)try{if(r=1,s&&(i=2&n[0]?s.return:n[0]?s.throw||((i=s.return)&&i.call(s),0):s.next)&&!(i=i.call(s,n[1])).done)return i;switch(s=0,i&&(n=[2&n[0],i.value]),n[0]){case 0:case 1:i=n;break;case 4:return a.label++,{value:n[1],done:!1};case 5:a.label++,s=n[1],n=[0];continue;case 7:n=a.ops.pop(),a.trys.pop();continue;default:if(!(i=(i=a.trys).length>0&&i[i.length-1])&&(6===n[0]||2===n[0])){a=0;continue}if(3===n[0]&&(!i||n[1]>i[0]&&n[1]<i[3])){a.label=n[1];break}if(6===n[0]&&a.label<i[1]){a.label=i[1],i=n;break}if(i&&a.label<i[2]){a.label=i[2],a.ops.push(n);break}i[2]&&a.ops.pop(),a.trys.pop();continue}n=t.call(e,a)}catch(c){n=[6,c],s=0}finally{r=i=0}if(5&n[0])throw n[1];return{value:n[0]?n[1]:void 0,done:!0}}([n,c])}}};Object.defineProperty(exports,"__esModule",{value:!0}),require("../../../bin/pixi-particles");var s=require("./effects/burnout"),i=require("./effects/confetti"),n=require("./effects/dust"),a=require("./effects/dust-left"),c=require("./effects/dust-right"),l=require("./effects/explosion"),f=require("./effects/explosion-enemy"),u=require("./effects/explosion-small"),o=require("./effects/fireball"),p=require("./effects/fireball-blue"),d=require("./effects/fireworks"),g=require("./effects/fireworks-tracer"),h=require("./effects/fireworks-tracer-with-dazzler"),q=require("./effects/flame"),m=require("./effects/flame-pixel"),_=require("./effects/glass"),w=require("./effects/hallucinogen"),y=require("./effects/hallucinogen-full"),k=require("./effects/laser"),b=require("./effects/muzzle-flash"),x=require("./effects/muzzle-flash-with-smoke"),v=require("./effects/pentagram"),S=require("./effects/pentagram-glitchy"),z=require("./effects/rain"),P=require("./effects/rain-cinematic"),T=require("./effects/smoke"),E=require("./effects/smoke-trail"),F=require("./effects/smoke-train"),I=require("./effects/snow-flakes"),C=require("./effects/sparks"),B=require("./effects/splash"),M=require("./effects/splash-pixel"),O=require("./effects/star"),D=require("./effects/starlight"),j=require("./effects/stink"),G=require("./effects/thrust"),H=require("./effects/thruster"),L=require("./effects/thruster-pixel"),R=require("./effects/trail"),A=require("./effects/trail-fart"),W=require("./effects/trail-pixel"),X=function(X){function J(){var e=X.call(this,{resizeTo:window,backgroundColor:0})||this;return document.getElementById("gameContainer").appendChild(e.view),e}return e(J,X),J.prototype.init=function(){return t(this,void 0,Promise,function(){var e=this;return r(this,function(t){switch(t.label){case 0:return[4,this._load()];case 1:return t.sent(),this._addButtons(),this._initEffect(13),this.ticker.add(function(){e._effect.update(e.ticker.deltaMS)}),[2]}})})},J.prototype._addButtons=function(){var e=this,t=document.getElementById("buttonsContainer");J._effects.forEach(function(r,s){var i=document.createElement("button");i.onclick=function(){e._initEffect(s)},i.innerHTML=r.name,t.appendChild(i)})},J.prototype._initEffect=function(e){var t=this;this._effect&&this._effect.destroy(),this._effectInterval&&clearInterval(this._effectInterval),this._effect=new J._effects[e],this._effect.start(),this._effect.x=this.renderer.width/2,this._effect.y=this.renderer.height/2,this.stage.addChild(this._effect),this._effectInterval=setInterval(function(){t._effect.reset(),t._effect.start()},this._effect.duration)},J.prototype._load=function(){var e=this;return new Promise(function(t){e.loader.add("default.png",require("../assets/particles/default.png")).add("explosion-1.png",require("../assets/particles/explosion-1.png")).add("explosion-2.png",require("../assets/particles/explosion-2.png")).add("explosion-3.png",require("../assets/particles/explosion-3.png")).add("thrust-1.png",require("../assets/particles/thrust-1.png")).add("thrust-2.png",require("../assets/particles/thrust-2.png")).add("thrust-3.png",require("../assets/particles/thrust-3.png")).add("circle.png",require("../assets/particles/circle.png")).add("circle1.png",require("../assets/particles/circle1.png")).add("circle2.png",require("../assets/particles/circle2.png")).add("circle3.png",require("../assets/particles/circle3.png")).add("circle4.png",require("../assets/particles/circle4.png")).add("cloud_1.png",require("../assets/particles/cloud_1.png")).add("firework.png",require("../assets/particles/firework.png")).add("rect.png",require("../assets/particles/rect.png")).add("glass-1.png",require("../assets/particles/glass-1.png")).add("glass-2.png",require("../assets/particles/glass-2.png")).add("glass-3.png",require("../assets/particles/glass-3.png")).add("glass-4.png",require("../assets/particles/glass-4.png")).add("glass-5.png",require("../assets/particles/glass-5.png")).add("glass-6.png",require("../assets/particles/glass-6.png")).add("neutron-full.png",require("../assets/particles/neutron-full.png")).add("neutron.png",require("../assets/particles/neutron.png")).add("dash.png",require("../assets/particles/dash.png")).add("pentagram.png",require("../assets/particles/pentagram.png")).add("pentagram-glow.png",require("../assets/particles/pentagram-glow.png")).add("rain-cinematic.png",require("../assets/particles/rain-cinematic.png")).add("rain-blurred.png",require("../assets/particles/rain-blurred.png")).add("snow-flake.png",require("../assets/particles/snow-flake.png")).add("star-real.png",require("../assets/particles/star-real.png")).add("star_1.png",require("../assets/particles/star_1.png")).add("spark-colored.png",require("../assets/particles/spark-colored.png")).add("confetti1.png",require("../assets/particles/confetti1.png")).add("confetti2.png",require("../assets/particles/confetti2.png")).add("confetti3.png",require("../assets/particles/confetti3.png")).add("confetti4.png",require("../assets/particles/confetti4.png")).add("confetti5.png",require("../assets/particles/confetti5.png")).add("confetti6.png",require("../assets/particles/confetti6.png")).load(function(){t()})})},J._effects=[s.Burnout,n.Dust,a.DustLeft,c.DustRight,f.ExplosionEnemy,u.ExplosionSmall,l.Explosion,p.FireballBlue,o.Fireball,h.FireworksTracerWithDazzler,g.FireworksTracer,d.Fireworks,m.FlamePixel,q.Flame,_.Glass,y.HallucinogenFull,w.Hallucinogen,k.Laser,x.MuzzleFlashWithSmoke,b.MuzzleFlash,S.PentagramGlitchy,v.Pentagram,P.RainCinematic,z.Rain,E.SmokeTrail,F.SmokeTrain,T.Smoke,I.SnowFlakes,C.Sparks,M.SplashPixel,B.Splash,O.Star,D.Starlight,j.Stink,G.Thrust,L.ThrusterPixel,H.Thruster,A.TrailFart,W.TrailPixel,R.Trail,i.Confetti],J}(PIXI.Application);document.onreadystatechange=function(){"complete"===document.readyState&&(new X).init()};
 },{"../../../bin/pixi-particles":"TTUu","./effects/burnout":"OaIm","./effects/confetti":"V8IA","./effects/dust":"OUFj","./effects/dust-left":"ko7t","./effects/dust-right":"JSgh","./effects/explosion":"E0bi","./effects/explosion-enemy":"Lm7E","./effects/explosion-small":"Jg5U","./effects/fireball":"Ok7n","./effects/fireball-blue":"iY9E","./effects/fireworks":"jArv","./effects/fireworks-tracer":"URHl","./effects/fireworks-tracer-with-dazzler":"iOuL","./effects/flame":"VBic","./effects/flame-pixel":"lTqa","./effects/glass":"NUt3","./effects/hallucinogen":"BjDA","./effects/hallucinogen-full":"nBHU","./effects/laser":"QTQ1","./effects/muzzle-flash":"pNHk","./effects/muzzle-flash-with-smoke":"HF9b","./effects/pentagram":"AqCd","./effects/pentagram-glitchy":"SRow","./effects/rain":"nFt8","./effects/rain-cinematic":"HmBr","./effects/smoke":"f0QK","./effects/smoke-trail":"EgWF","./effects/smoke-train":"mVV0","./effects/snow-flakes":"BfbF","./effects/sparks":"c5bp","./effects/splash":"Y6MS","./effects/splash-pixel":"VPDe","./effects/star":"e6NX","./effects/starlight":"B6oR","./effects/stink":"k9RK","./effects/thrust":"HWYs","./effects/thruster":"DB3D","./effects/thruster-pixel":"DFCl","./effects/trail":"beIB","./effects/trail-fart":"fxBz","./effects/trail-pixel":"mpve","../assets/particles/default.png":"M2TG","../assets/particles/explosion-1.png":"Vc3g","../assets/particles/explosion-2.png":"tJ14","../assets/particles/explosion-3.png":"Ylob","../assets/particles/thrust-1.png":"LPIv","../assets/particles/thrust-2.png":"Jyfz","../assets/particles/thrust-3.png":"mdPH","../assets/particles/circle.png":"JIeZ","../assets/particles/circle1.png":"Aefm","../assets/particles/circle2.png":"Ij1B","../assets/particles/circle3.png":"indE","../assets/particles/circle4.png":"c1hk","../assets/particles/cloud_1.png":"T4zc","../assets/particles/firework.png":"VLIg","../assets/particles/rect.png":"BFss","../assets/particles/glass-1.png":"ACCR","../assets/particles/glass-2.png":"aqVV","../assets/particles/glass-3.png":"MUTY","../assets/particles/glass-4.png":"B0pJ","../assets/particles/glass-5.png":"y5vm","../assets/particles/glass-6.png":"bsT7","../assets/particles/neutron-full.png":"JlXc","../assets/particles/neutron.png":"oyEA","../assets/particles/dash.png":"F7rL","../assets/particles/pentagram.png":"gyv8","../assets/particles/pentagram-glow.png":"GK2o","../assets/particles/rain-cinematic.png":"BQ1h","../assets/particles/rain-blurred.png":"bvCN","../assets/particles/snow-flake.png":"d77d","../assets/particles/star-real.png":"je1y","../assets/particles/star_1.png":"NHi9","../assets/particles/spark-colored.png":"KRYV","../assets/particles/confetti1.png":"Ip6K","../assets/particles/confetti2.png":"gv8e","../assets/particles/confetti3.png":"UYUm","../assets/particles/confetti4.png":"n50s","../assets/particles/confetti5.png":"b0ec","../assets/particles/confetti6.png":"YB24"}]},{},["LQOA"], null)
-//# sourceMappingURL=/ts.96ff5121.js.map
+//# sourceMappingURL=ts.96ff5121.js.map
