@@ -7,7 +7,7 @@
     "scripts": {
         "test": "jest --config jestconfig.json",
         "start": "npx parcel src/__examples__/index.html",
-        "build-examples": "npx parcel build src/__examples__/index.html --public-url ./",
+        "build-examples": "npx parcel build src/__examples__/index.html --public-url ./ --no-minify",
         "make:dts": "node scripts/make_dts.js",
         "uglify": "node scripts/uglify.js",
         "build": "tsc && npm run make:dts && npm run uglify",
