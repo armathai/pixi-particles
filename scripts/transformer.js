@@ -21,19 +21,19 @@ const SpriteMode = {
 const input = path.resolve(`particle-park`);
 const output = path.resolve(`src/__examples__/assets/effects`);
 
-const readString = line => {
+const readString = (line) => {
     const keyValue = line.split(':');
     keyValue[1] = keyValue[1].trim();
     return keyValue;
 };
 
-const readBoolean = line => {
+const readBoolean = (line) => {
     const keyValue = readString(line);
     keyValue[1] = keyValue[1] === 'true';
     return keyValue;
 };
 
-const readNumber = line => {
+const readNumber = (line) => {
     const keyValue = readString(line);
     keyValue[1] = parseFloat(keyValue[1]);
     return keyValue;
@@ -94,7 +94,7 @@ const readIndependentScaledNumericValue = async (obj, reader) => {
     return obj;
 };
 
-const readDelay = async reader => {
+const readDelay = async (reader) => {
     await reader.nextLine();
     const obj = await readValue({}, reader);
     if (!obj.active) {
@@ -103,12 +103,12 @@ const readDelay = async reader => {
     return await readRangedNumericValueValue(obj, reader);
 };
 
-const readDuration = async reader => {
+const readDuration = async (reader) => {
     await reader.nextLine();
     return await readRangedNumericValueValue({}, reader);
 };
 
-const readCount = async reader => {
+const readCount = async (reader) => {
     await reader.nextLine();
     const obj = {};
     let line = await reader.nextLine();
@@ -120,12 +120,12 @@ const readCount = async reader => {
     return obj;
 };
 
-const readEmission = async reader => {
+const readEmission = async (reader) => {
     await reader.nextLine();
     return await readScaledNumericValue(await readRangedNumericValueValue({}, reader), reader);
 };
 
-const readLife = async reader => {
+const readLife = async (reader) => {
     await reader.nextLine();
     const obj = await readIndependentScaledNumericValue(
         await readScaledNumericValue(await readRangedNumericValueValue({}, reader), reader),
@@ -144,7 +144,7 @@ const readLife = async reader => {
     return obj;
 };
 
-const readOffset = async reader => {
+const readOffset = async (reader) => {
     const obj = {};
     await reader.nextLine();
     obj.x = await readValue({}, reader);
@@ -159,7 +159,7 @@ const readOffset = async reader => {
     return obj;
 };
 
-const readSpawn = async reader => {
+const readSpawn = async (reader) => {
     const obj = {};
     await reader.nextLine();
     const line = await reader.nextLine();
@@ -172,7 +172,7 @@ const readSpawn = async reader => {
     return obj;
 };
 
-const readScale = async reader => {
+const readScale = async (reader) => {
     const obj = {};
     await reader.nextLine();
     obj.x = await readScaledNumericValue(await readRangedNumericValueValue({}, reader), reader);
@@ -184,7 +184,7 @@ const readScale = async reader => {
     return obj;
 };
 
-const readVelocity = async reader => {
+const readVelocity = async (reader) => {
     await reader.nextLine();
     let obj = await readValue({}, reader);
     if (!obj.active) {
@@ -198,7 +198,7 @@ const readVelocity = async reader => {
     return obj;
 };
 
-const readAngle = async reader => {
+const readAngle = async (reader) => {
     await reader.nextLine();
     const obj = await readValue({}, reader);
     if (!obj.active) {
@@ -207,7 +207,7 @@ const readAngle = async reader => {
     return await readScaledNumericValue(await readRangedNumericValueValue(obj, reader), reader);
 };
 
-const readRotation = async reader => {
+const readRotation = async (reader) => {
     await reader.nextLine();
     let obj = await readValue({}, reader);
     if (!obj.active) {
@@ -221,7 +221,7 @@ const readRotation = async reader => {
     return obj;
 };
 
-const readWind = async reader => {
+const readWind = async (reader) => {
     await reader.nextLine();
     let obj = await readValue({}, reader);
     if (!obj.active) {
@@ -235,7 +235,7 @@ const readWind = async reader => {
     return obj;
 };
 
-const readGravity = async reader => {
+const readGravity = async (reader) => {
     await reader.nextLine();
     let obj = await readValue({}, reader);
     if (!obj.active) {
@@ -249,7 +249,7 @@ const readGravity = async reader => {
     return obj;
 };
 
-const readTint = async reader => {
+const readTint = async (reader) => {
     await reader.nextLine();
     const obj = {};
     let line = await reader.nextLine();
@@ -273,12 +273,12 @@ const readTint = async reader => {
     return obj;
 };
 
-const readTransparency = async reader => {
+const readTransparency = async (reader) => {
     await reader.nextLine();
     return await readScaledNumericValue(await readRangedNumericValueValue({}, reader), reader);
 };
 
-const readOptions = async reader => {
+const readOptions = async (reader) => {
     await reader.nextLine();
     const obj = {};
     let line = await reader.nextLine();
@@ -305,7 +305,7 @@ const readOptions = async reader => {
     return obj;
 };
 
-const readTextures = async reader => {
+const readTextures = async (reader) => {
     await reader.nextLine();
     const obj = [];
     let line = '';
@@ -324,11 +324,11 @@ const readTextures = async reader => {
 async function execute(params) {
     const inputDirs = fs
         .readdirSync(input, { withFileTypes: true })
-        .filter(dir => dir.isDirectory())
-        .map(dir => dir.name);
-    inputDirs.forEach(async dir => {
+        .filter((dir) => dir.isDirectory())
+        .map((dir) => dir.name);
+    inputDirs.forEach(async (dir) => {
         const inputFiles = fs.readdirSync(path.join(input, dir));
-        const p = inputFiles.find(f => f.split('.').pop() === 'p');
+        const p = inputFiles.find((f) => f.split('.').pop() === 'p');
         const reader = await lineReader.open(path.join(input, dir, p));
         reader.nextLine = util.promisify(reader.nextLine, lineReader);
         const effect = {};

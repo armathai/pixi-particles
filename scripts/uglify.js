@@ -1,5 +1,4 @@
 const fs = require('fs');
-const path = require('path');
 const UglifyJS = require('uglify-js');
 
 const inputPath = 'bin/pixi-particles.js';
