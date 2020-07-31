@@ -17,10 +17,25 @@
       overflow: hidden;
       background: #ffffff;
     }
+
+    .buttons {
+      position: absolute;
+      padding: 10px;
+      overflow: auto;
+      height: 100%;
+    }
+
+    button {
+      width: 200px;
+      height: 30px;
+      display: block;
+      margin-bottom: 10px;
+    }
   </style>
 </head>
 
 <body>
+  <div class="buttons" id="buttonsContainer"></div>
   <div id="gameContainer"></div>
   <script src="ts/pixi.ts"></script>
   <script src="ts/index.ts"></script>
