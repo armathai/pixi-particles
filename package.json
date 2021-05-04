@@ -2,17 +2,15 @@
     "name": "@armathai/pixi-particles",
     "version": "2.0.0",
     "description": "Particle emitter for Pixi.js",
-    "main": "bin/pixi-particles.js",
-    "types": "bin/pixi-particles.d.ts",
+    "main": "dist/pixi-particles.cjs.js",
+    "module": "dist/pixi-particles.esm.js",
+    "types": "dist/types/index-types.d.ts",
     "scripts": {
+        "start": "npx parcel src/__examples__/index.html -d www",
+        "build": "rollup -c && tsc",
+        "dev": "rollup -c -w",
         "test": "jest --config jestconfig.json",
-        "start": "npx parcel src/__examples__/index.html",
-        "build-examples": "npx parcel build src/__examples__/index.html --public-url ./ --no-minify",
-        "make:dts": "node scripts/make_dts.js",
-        "uglify": "node scripts/uglify.js",
-        "build": "tsc && npm run make:dts && npm run uglify",
-        "format": "prettier --write \"src/**/*.ts\" \"src/**/*.js\"",
-        "lint": "tsc --noEmit && eslint '*/**/*.{js,ts,ts}'  --fix",
+        "lint": "tsc && eslint '*/**/*.{js,ts,ts}' --fix",
         "prepare": "npm run build --scripts-prepend-node-path",
         "prepublishOnly": "npm test && npm run lint"
     },
@@ -27,32 +25,39 @@
         "particles",
         "effects"
     ],
-    "author": "armathai LLC",
+    "author": "Armath LLC",
     "license": "MIT",
     "homepage": "https://github.com/armathai/pixi-particles#readme",
-    "peerDependencies": {
-        "pixi.js": ">=5.0.0"
-    },
     "devDependencies": {
+        "@babel/plugin-proposal-class-properties": "^7.13.0",
+        "@babel/plugin-transform-runtime": "^7.13.15",
+        "@babel/preset-env": "^7.14.1",
+        "@babel/preset-typescript": "^7.13.0",
+        "@rollup/plugin-babel": "^5.3.0",
+        "@rollup/plugin-commonjs": "^18.0.0",
+        "@rollup/plugin-node-resolve": "^11.2.1",
         "@types/jest": "^26.0.8",
-        "@types/node": "^14.0.27",
-        "@typescript-eslint/eslint-plugin": "^3.7.1",
-        "@typescript-eslint/parser": "^3.7.1",
+        "@types/node": "^15.0.1",
+        "@typescript-eslint/eslint-plugin": "^4.22.1",
+        "@typescript-eslint/parser": "^4.22.1",
         "eslint": "^7.5.0",
-        "eslint-config-prettier": "^6.11.0",
+        "eslint-config-prettier": "^8.3.0",
         "eslint-plugin-prettier": "^3.1.3",
         "jest": "^26.2.1",
         "line-reader": "^0.4.0",
         "parcel-bundler": "^1.12.4",
-        "pixi.js": "^5.3.2",
         "prettier": "^2.0.5",
+        "rollup": "^2.47.0",
         "ts-jest": "^26.1.4",
         "tslint-config-prettier": "^1.18.0",
-        "typescript": "^3.9.7",
+        "typescript": "^4.2.4",
         "uglify-js": "^3.9.3"
     },
     "files": [
-        "bin/**/*"
+        "dist/**/*"
     ],
-    "dependencies": {}
+    "dependencies": {
+        "core-js": "^3.11.2",
+        "pixi.js": "^6.0.2"
+    }
 }

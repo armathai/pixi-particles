@@ -1,3 +1,4 @@
+import { Container, DEG_TO_RAD, Texture } from 'pixi.js';
 import { SpawnEllipseSide } from './constants/SpawnEllipseSide';
 import { SpawnShape } from './constants/SpawnShape';
 import { SpriteMode } from './constants/SpriteMode';
@@ -25,7 +26,7 @@ enum UpdateFlags {
 export class ParticleEmitter {
     public duration = 1;
     public durationTimer = 0;
-    public sprites: PIXI.Texture[];
+    public sprites: Texture[];
     public continuous = false;
     public name: string;
 
@@ -60,7 +61,7 @@ export class ParticleEmitter {
     private _maxParticleCount = 4;
     private _x = 0;
     private _y = 0;
-    private _container: PIXI.Container;
+    private _container: Container;
     private _activeCount = 0;
     private _active: boolean[];
     private _firstUpdate = false;
@@ -87,7 +88,12 @@ export class ParticleEmitter {
     private _aligned = false;
     private _additive = true;
 
-    public constructor(container: PIXI.Container, name: string, emitterConfig: ParticleEmitterConfig) {
+    public constructor(
+        container: Container,
+        name: string,
+        emitterConfig: ParticleEmitterConfig,
+        textureFactory: typeof Texture.from,
+    ) {
         this._initialize();
         this._container = container;
         this.name = name;
@@ -120,7 +126,7 @@ export class ParticleEmitter {
         this._tintValue.init(emitterConfig.tint);
         this._transparencyValue.init(emitterConfig.transparency);
         const { textures } = emitterConfig;
-        this.setTextures(textures.map((t) => PIXI.Texture.from(t)));
+        this.setTextures(textures.map((t) => textureFactory(t)));
     }
 
     public update(delta: number): void {
@@ -180,7 +186,7 @@ export class ParticleEmitter {
         this._activeCount = activeCount;
     }
 
-    public setTextures(sprites: PIXI.Texture[]): void {
+    public setTextures(sprites: Texture[]): void {
         this.sprites = sprites;
         if (sprites.length === 0) return;
         this._particles.forEach((particle) => {
@@ -253,7 +259,7 @@ export class ParticleEmitter {
         return Math.min(1, this.durationTimer / this.duration);
     }
 
-    private _newParticle(sprite: PIXI.Texture): Particle {
+    private _newParticle(sprite: Texture): Particle {
         return new Particle(this._additive, sprite);
     }
 
@@ -350,7 +356,7 @@ export class ParticleEmitter {
     }
 
     private _activateParticle(index: number): void {
-        let sprite: PIXI.Texture = null;
+        let sprite: Texture = null;
         switch (this._spriteMode) {
             case SpriteMode.single:
             case SpriteMode.animated:
@@ -393,8 +399,8 @@ export class ParticleEmitter {
         if ((updateFlags & UpdateFlags.angle) === 0) {
             angle = particle.angle + particle.angleDiff * this._angleValue.getScale(0);
             particle.angle = angle;
-            particle.angleCos = Math.cos(PIXI.DEG_TO_RAD * angle);
-            particle.angleSin = Math.sin(PIXI.DEG_TO_RAD * angle);
+            particle.angleCos = Math.cos(DEG_TO_RAD * angle);
+            particle.angleSin = Math.sin(DEG_TO_RAD * angle);
         }
 
         const spriteWidth = sprite.width;
@@ -480,8 +486,8 @@ export class ParticleEmitter {
                             spawnAngle = between(0, 360);
                             break;
                     }
-                    const cosDeg = Math.cos(PIXI.DEG_TO_RAD * angle);
-                    const sinDeg = Math.sin(PIXI.DEG_TO_RAD * angle);
+                    const cosDeg = Math.cos(DEG_TO_RAD * angle);
+                    const sinDeg = Math.sin(DEG_TO_RAD * angle);
                     x += cosDeg * radiusX;
                     y += (sinDeg * radiusX) / scaleY;
                     if ((updateFlags & UpdateFlags.angle) === 0) {
@@ -555,8 +561,8 @@ export class ParticleEmitter {
                 velocityY = 0;
             if ((updateFlags & UpdateFlags.angle) !== 0) {
                 const angle = particle.angle + particle.angleDiff * this._angleValue.getScale(percent);
-                velocityX = velocity * Math.cos(PIXI.DEG_TO_RAD * angle);
-                velocityY = velocity * Math.sin(PIXI.DEG_TO_RAD * angle);
+                velocityX = velocity * Math.cos(DEG_TO_RAD * angle);
+                velocityY = velocity * Math.sin(DEG_TO_RAD * angle);
                 if ((updateFlags & UpdateFlags.rotation) !== 0) {
                     let rotation = particle.rotationDiff * this._rotationValue.getScale(percent);
                     if (this._aligned) rotation -= angle;

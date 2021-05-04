@@ -1,4 +1,4 @@
-test('Stats Grid', done => {
+test('Pixi Particle', (done) => {
     // Nothing to do
     done();
 });

@@ -1,3 +1,6 @@
+import { BLEND_MODES, Point, Sprite, Texture } from 'pixi.js';
+import { rgb2hex } from './utils/rgb2hex';
+
 export class Particle {
     public life: number;
     public currentLife: number;
@@ -25,20 +28,20 @@ export class Particle {
 
     //
 
-    public position = new PIXI.Point(0, 0);
-    public positionOffset = new PIXI.Point(0, 0);
+    public position = new Point(0, 0);
+    public positionOffset = new Point(0, 0);
     public flip: { x: boolean; y: boolean };
-    public scale = new PIXI.Point(0, 0);
-    public texture: PIXI.Texture;
-    private _sprite: PIXI.Sprite;
+    public scale = new Point(0, 0);
+    public texture: Texture;
+    private _sprite: Sprite;
 
-    public constructor(additive: boolean, texture?: PIXI.Texture) {
-        this._sprite = new PIXI.Sprite(texture);
+    public constructor(additive: boolean, texture?: Texture) {
+        this._sprite = new Sprite(texture);
         this._sprite.anchor.set(0.5);
-        this._sprite.blendMode = additive ? PIXI.BLEND_MODES.ADD : PIXI.BLEND_MODES.NORMAL;
+        this._sprite.blendMode = additive ? BLEND_MODES.ADD : BLEND_MODES.NORMAL;
     }
 
-    public get sprite(): PIXI.Sprite {
+    public get sprite(): Sprite {
         return this._sprite;
     }
 
@@ -50,7 +53,7 @@ export class Particle {
 
     public update(): void {
         this._sprite.texture = this.texture;
-        this._sprite.tint = PIXI.utils.rgb2hex(this.color);
+        this._sprite.tint = rgb2hex(this.color);
         this._sprite.alpha = this.color[3];
         this.scale.copyTo(this._sprite.scale);
         this._sprite.position.x = this.position.x + this.positionOffset.x;

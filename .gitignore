@@ -7,9 +7,9 @@
 *.o
 *.so
 lib
-bin
 dist/*
 !dist/assets
+www/*
 
 # Packages #
 ############
@@ -49,5 +49,3 @@ build/*
 ##########
 .idea/
 .cache
-
-!runnable-2D-particles.jar

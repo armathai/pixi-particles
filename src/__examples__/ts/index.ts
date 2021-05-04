@@ -1,4 +1,5 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
+import { Application } from '@pixi/app';
 import { ParticleEffect } from '../../ParticleEffect';
 import { Burnout } from './effects/burnout';
 import { Confetti } from './effects/confetti';
@@ -42,7 +43,7 @@ import { Trail } from './effects/trail';
 import { TrailFart } from './effects/trail-fart';
 import { TrailPixel } from './effects/trail-pixel';
 
-class Game extends PIXI.Application {
+class Game extends Application {
     private static readonly _effects = [
         Burnout,
         Dust,

@@ -6,7 +6,7 @@
         "declaration": true,
         "emitDeclarationOnly": true,
         "allowSyntheticDefaultImports": true,
-        "skipLibCheck": true,
-        "resolveJsonModule": true
-    }
+        "skipLibCheck": true
+    },
+    "files": ["src/index-types.ts"]
 }

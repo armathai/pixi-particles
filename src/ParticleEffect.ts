@@ -1,15 +1,16 @@
+import { Container, Texture } from 'pixi.js';
 import { ParticleEffectConfig } from './ParticleEffectConfig';
 import { ParticleEmitter } from './ParticleEmitter';
 import { ParticleEmitterConfig } from './ParticleEmitterConfig';
 
-export class ParticleEffect extends PIXI.Container {
+export class ParticleEffect extends Container {
     private readonly _emitters: ParticleEmitter[];
 
-    public constructor(config: ParticleEffectConfig) {
+    public constructor(config: ParticleEffectConfig, textureFactory: typeof Texture.from) {
         super();
         this._emitters = [];
         Object.keys(config).forEach((e) => {
-            const emitter = this.newEmitter(e, config[e]);
+            const emitter = this.newEmitter(e, config[e], textureFactory);
             this._emitters.push(emitter);
         });
     }
@@ -64,7 +65,11 @@ export class ParticleEffect extends PIXI.Container {
         super.destroy(options);
     }
 
-    protected newEmitter(name: string, emitterConfig: ParticleEmitterConfig): ParticleEmitter {
-        return new ParticleEmitter(this, name, emitterConfig);
+    protected newEmitter(
+        name: string,
+        emitterConfig: ParticleEmitterConfig,
+        textureFactory: typeof Texture.from,
+    ): ParticleEmitter {
+        return new ParticleEmitter(this, name, emitterConfig, textureFactory);
     }
 }
