@@ -8,6 +8,7 @@
     "scripts": {
         "start": "npx parcel src/__examples__/index.html -d www",
         "build": "rollup -c && tsc",
+        "build-examples": "npx parcel build src/__examples__/index.html --public-url ./ --no-minify",
         "dev": "rollup -c -w",
         "test": "jest --config jestconfig.json",
         "lint": "tsc && eslint '*/**/*.{js,ts,ts}' --fix",
