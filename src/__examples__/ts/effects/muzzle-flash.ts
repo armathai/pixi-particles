@@ -1,8 +1,7 @@
-/// <reference path="../../../../bin/pixi-particles.d.ts" />
-
+import { ParticleEffect } from '../../../ParticleEffect';
 import config from '../../assets/effects/muzzle-flash.json';
 
-export class MuzzleFlash extends PIXI.particles.core.ParticleEffect {
+export class MuzzleFlash extends ParticleEffect {
     public constructor() {
         super(config);
     }

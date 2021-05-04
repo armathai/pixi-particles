@@ -1,8 +1,7 @@
-/// <reference path="../../../../bin/pixi-particles.d.ts" />
-
+import { ParticleEffect } from '../../../ParticleEffect';
 import config from '../../assets/effects/hallucinogen-full.json';
 
-export class HallucinogenFull extends PIXI.particles.core.ParticleEffect {
+export class HallucinogenFull extends ParticleEffect {
     public constructor() {
         super(config);
     }

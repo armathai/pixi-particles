@@ -1,8 +1,7 @@
-/// <reference path="../../../../bin/pixi-particles.d.ts" />
-
+import { ParticleEffect } from '../../../ParticleEffect';
 import config from '../../assets/effects/fireball-blue.json';
 
-export class FireballBlue extends PIXI.particles.core.ParticleEffect {
+export class FireballBlue extends ParticleEffect {
     public constructor() {
         super(config);
     }

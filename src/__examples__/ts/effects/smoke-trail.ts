@@ -1,8 +1,7 @@
-/// <reference path="../../../../bin/pixi-particles.d.ts" />
-
+import { ParticleEffect } from '../../../ParticleEffect';
 import config from '../../assets/effects/smoke-trail.json';
 
-export class SmokeTrail extends PIXI.particles.core.ParticleEffect {
+export class SmokeTrail extends ParticleEffect {
     public constructor() {
         super(config);
     }

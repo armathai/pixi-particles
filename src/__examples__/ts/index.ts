@@ -1,7 +1,5 @@
-/* eslint-disable @typescript-eslint/ban-ts-comment */
 /* eslint-disable @typescript-eslint/no-var-requires */
-/// <reference types="../../../bin/pixi-particles.js" />
-import '../../../bin/pixi-particles';
+import { ParticleEffect } from '../../ParticleEffect';
 import { Burnout } from './effects/burnout';
 import { Confetti } from './effects/confetti';
 import { Dust } from './effects/dust';
@@ -89,7 +87,7 @@ class Game extends PIXI.Application {
         Confetti,
     ];
 
-    private _effect: PIXI.particles.core.ParticleEffect;
+    private _effect: ParticleEffect & { duration: number };
     private _effectInterval: NodeJS.Timer;
 
     public constructor() {
@@ -129,7 +127,6 @@ class Game extends PIXI.Application {
         this._effectInterval = setInterval(() => {
             this._effect.reset();
             this._effect.start();
-            // @ts-ignore
         }, this._effect.duration);
     }
 

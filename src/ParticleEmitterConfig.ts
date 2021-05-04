@@ -1,42 +1,45 @@
-/// <reference types="pixi.js" />
+import { SpriteMode } from './constants/SpriteMode';
+import { GradientColorValueType } from './values/GradientColorValue';
+import { IndependentScaledNumericValueType } from './values/IndependentScaledNumericValue';
+import { RangedNumericValueType } from './values/RangedNumericValue';
+import { ScaledNumericValueType } from './values/ScaledNumericValue';
+import { SpawnShapeValueType } from './values/SpawnShapeValue';
 
-namespace pixiparticles.core {
-    export type ParticleEmitterConfig = {
-        delay: values.RangedNumericValueType;
-        duration: values.RangedNumericValueType;
-        count: { min: number; max: number };
-        emission: values.ScaledNumericValueType;
-        life: values.IndependentScaledNumericValueType & {
-            offset: values.IndependentScaledNumericValueType;
-        };
-        offset: {
-            x: values.ScaledNumericValueType;
-            y: values.ScaledNumericValueType;
-        };
-        spawn: values.SpawnShapeValueType & {
-            width: values.ScaledNumericValueType;
-            height: values.ScaledNumericValueType;
-        };
-        scale: {
-            x: values.ScaledNumericValueType;
-            y: values.ScaledNumericValueType;
-        };
-        velocity: values.ScaledNumericValueType;
-        angle: values.ScaledNumericValueType;
-        rotation: values.ScaledNumericValueType;
-        wind: values.ScaledNumericValueType;
-        gravity: values.ScaledNumericValueType;
-        tint: values.GradientColorValueType;
-        transparency: values.ScaledNumericValueType;
-        options: {
-            attached: boolean;
-            continuous: boolean;
-            aligned: boolean;
-            additive: boolean;
-            behind: boolean;
-            premultipliedAlpha: boolean;
-            spriteMode: constants.SpriteMode;
-        };
-        textures: string[];
+export type ParticleEmitterConfig = {
+    delay: RangedNumericValueType;
+    duration: RangedNumericValueType;
+    count: { min: number; max: number };
+    emission: ScaledNumericValueType;
+    life: IndependentScaledNumericValueType & {
+        offset: IndependentScaledNumericValueType;
     };
-}
+    offset: {
+        x: ScaledNumericValueType;
+        y: ScaledNumericValueType;
+    };
+    spawn: SpawnShapeValueType & {
+        width: ScaledNumericValueType;
+        height: ScaledNumericValueType;
+    };
+    scale: {
+        x: ScaledNumericValueType;
+        y: ScaledNumericValueType;
+    };
+    velocity: ScaledNumericValueType;
+    angle: ScaledNumericValueType;
+    rotation: ScaledNumericValueType;
+    wind: ScaledNumericValueType;
+    gravity: ScaledNumericValueType;
+    tint: GradientColorValueType;
+    transparency: ScaledNumericValueType;
+    options: {
+        attached: boolean;
+        continuous: boolean;
+        aligned: boolean;
+        additive: boolean;
+        behind: boolean;
+        premultipliedAlpha: boolean;
+        spriteMode: SpriteMode;
+    };
+    textures: string[];
+};

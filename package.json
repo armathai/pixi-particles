@@ -1,6 +1,6 @@
 {
     "name": "@armathai/pixi-particles",
-    "version": "1.0.5",
+    "version": "2.0.0",
     "description": "Particle emitter for Pixi.js",
     "main": "bin/pixi-particles.js",
     "types": "bin/pixi-particles.d.ts",

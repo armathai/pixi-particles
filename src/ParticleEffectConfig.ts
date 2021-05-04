@@ -1,5 +1,3 @@
-/// <reference types="pixi.js" />
+import { ParticleEmitterConfig } from './ParticleEmitterConfig';
 
-namespace pixiparticles.core {
-    export type ParticleEffectConfig = { [key: string]: ParticleEmitterConfig };
-}
+export type ParticleEffectConfig = { [key: string]: ParticleEmitterConfig };

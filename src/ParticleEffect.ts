@@ -1,68 +1,70 @@
-namespace pixiparticles.core {
-    export class ParticleEffect extends PIXI.Container {
-        private readonly _emitters: ParticleEmitter[];
+import { ParticleEffectConfig } from './ParticleEffectConfig';
+import { ParticleEmitter } from './ParticleEmitter';
+import { ParticleEmitterConfig } from './ParticleEmitterConfig';
 
-        public constructor(config: ParticleEffectConfig) {
-            super();
-            this._emitters = [];
-            Object.keys(config).forEach((e) => {
-                const emitter = this.newEmitter(e, config[e]);
-                this._emitters.push(emitter);
-            });
-        }
+export class ParticleEffect extends PIXI.Container {
+    private readonly _emitters: ParticleEmitter[];
 
-        public start(): void {
-            this._emitters.forEach((e) => e.start());
-        }
+    public constructor(config: ParticleEffectConfig) {
+        super();
+        this._emitters = [];
+        Object.keys(config).forEach((e) => {
+            const emitter = this.newEmitter(e, config[e]);
+            this._emitters.push(emitter);
+        });
+    }
 
-        /** Resets the effect so it can be started again like a new effect. */
-        public reset(): void {
-            this._emitters.forEach((e) => e.reset());
-        }
+    public start(): void {
+        this._emitters.forEach((e) => e.start());
+    }
 
-        public update(delta: number): void {
-            this._emitters.forEach((e) => e.update(delta));
-        }
+    /** Resets the effect so it can be started again like a new effect. */
+    public reset(): void {
+        this._emitters.forEach((e) => e.reset());
+    }
 
-        public allowCompletion(): void {
-            this._emitters.forEach((e) => e.allowCompletion());
-        }
+    public update(delta: number): void {
+        this._emitters.forEach((e) => e.update(delta));
+    }
 
-        public isComplete(): boolean {
-            return !this._emitters.find((e) => !e.isComplete());
-        }
+    public allowCompletion(): void {
+        this._emitters.forEach((e) => e.allowCompletion());
+    }
 
-        public setDuration(duration: number): void {
-            this._emitters.forEach((e) => {
-                e.continuous = false;
-                e.duration = duration;
-                e.durationTimer = 0;
-            });
-        }
+    public isComplete(): boolean {
+        return !this._emitters.find((e) => !e.isComplete());
+    }
 
-        public getEmitters(): ParticleEmitter[] {
-            return this._emitters;
-        }
+    public setDuration(duration: number): void {
+        this._emitters.forEach((e) => {
+            e.continuous = false;
+            e.duration = duration;
+            e.durationTimer = 0;
+        });
+    }
 
-        /** Returns the emitter with the specified name, or null. */
-        public findEmitter(name: string): ParticleEmitter {
-            return this._emitters.find((e) => e.name === name);
-        }
+    public getEmitters(): ParticleEmitter[] {
+        return this._emitters;
+    }
 
-        /** Allocates all emitters particles. */
-        public preAllocateParticles(): void {
-            this._emitters.forEach((e) => e.preAllocateParticles());
-        }
+    /** Returns the emitter with the specified name, or null. */
+    public findEmitter(name: string): ParticleEmitter {
+        return this._emitters.find((e) => e.name === name);
+    }
 
-        /** Disposes the texture for each sprite for each ParticleEmitter. */
-        public destroy(
-            options: { children?: boolean; texture?: boolean; baseTexture?: boolean } = { children: true },
-        ): void {
-            super.destroy(options);
-        }
+    /** Allocates all emitters particles. */
+    public preAllocateParticles(): void {
+        this._emitters.forEach((e) => e.preAllocateParticles());
+    }
 
-        protected newEmitter(name: string, emitterConfig: ParticleEmitterConfig): ParticleEmitter {
-            return new ParticleEmitter(this, name, emitterConfig);
-        }
+    /** Disposes the texture for each sprite for each ParticleEmitter. */
+    public destroy(
+        options: { children?: boolean; texture?: boolean; baseTexture?: boolean } = { children: true },
+    ): void {
+        super.destroy(options);
+    }
+
+    protected newEmitter(name: string, emitterConfig: ParticleEmitterConfig): ParticleEmitter {
+        return new ParticleEmitter(this, name, emitterConfig);
     }
 }

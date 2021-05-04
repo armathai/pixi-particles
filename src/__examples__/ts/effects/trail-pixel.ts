@@ -1,8 +1,7 @@
-/// <reference path="../../../../bin/pixi-particles.d.ts" />
-
+import { ParticleEffect } from '../../../ParticleEffect';
 import config from '../../assets/effects/trail-pixel.json';
 
-export class TrailPixel extends PIXI.particles.core.ParticleEffect {
+export class TrailPixel extends ParticleEffect {
     public constructor() {
         super(config);
     }

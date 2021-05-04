@@ -1,8 +1,7 @@
-/// <reference path="../../../../bin/pixi-particles.d.ts" />
-
+import { ParticleEffect } from '../../../ParticleEffect';
 import config from '../../assets/effects/pentagram-glitchy.json';
 
-export class PentagramGlitchy extends PIXI.particles.core.ParticleEffect {
+export class PentagramGlitchy extends ParticleEffect {
     public constructor() {
         super(config);
     }

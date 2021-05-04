@@ -1,8 +1,7 @@
-/// <reference path="../../../../bin/pixi-particles.d.ts" />
-
+import { ParticleEffect } from '../../../ParticleEffect';
 import config from '../../assets/effects/thrust.json';
 
-export class Thrust extends PIXI.particles.core.ParticleEffect {
+export class Thrust extends ParticleEffect {
     public constructor() {
         super(config);
     }

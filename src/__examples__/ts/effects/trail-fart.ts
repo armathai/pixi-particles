@@ -1,8 +1,7 @@
-/// <reference path="../../../../bin/pixi-particles.d.ts" />
-
+import { ParticleEffect } from '../../../ParticleEffect';
 import config from '../../assets/effects/trail-fart.json';
 
-export class TrailFart extends PIXI.particles.core.ParticleEffect {
+export class TrailFart extends ParticleEffect {
     public constructor() {
         super(config);
     }

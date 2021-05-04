@@ -1,8 +1,7 @@
-/// <reference path="../../../../bin/pixi-particles.d.ts" />
-
+import { ParticleEffect } from '../../../ParticleEffect';
 import config from '../../assets/effects/rain-cinematic.json';
 
-export class RainCinematic extends PIXI.particles.core.ParticleEffect {
+export class RainCinematic extends ParticleEffect {
     public constructor() {
         super(config);
     }
