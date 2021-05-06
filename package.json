@@ -1,6 +1,6 @@
 {
     "name": "@armathai/pixi-particles",
-    "version": "2.0.0",
+    "version": "2.1.0",
     "description": "Particle emitter for Pixi.js",
     "main": "dist/pixi-particles.cjs.js",
     "module": "dist/pixi-particles.esm.js",
