@@ -12,6 +12,12 @@ const SpawnShape = {
     ellipse: 3,
 };
 
+const SpawnSide = {
+    both: 0,
+    top: 1,
+    bottom: 2,
+};
+
 const SpriteMode = {
     single: 0,
     random: 1,
@@ -165,6 +171,21 @@ const readSpawn = async (reader) => {
     const line = await reader.nextLine();
     const keyValue = readString(line);
     obj[keyValue[0]] = SpawnShape[keyValue[1]];
+
+    // If shape is set to ellipse, there are 2 extra properties to get
+    if (SpawnShape[keyValue[1]] === SpawnShape.ellipse) {
+        {
+            const line = await reader.nextLine();
+            const keyValue = readString(line);
+            obj[keyValue[0]] = keyValue[1];
+        }
+        {
+            const line = await reader.nextLine();
+            const keyValue = readString(line);
+            obj[keyValue[0]] = SpawnSide[keyValue[1]];
+        }
+    }
+
     await reader.nextLine();
     obj.width = await readScaledNumericValue(await readRangedNumericValueValue({}, reader), reader);
     await reader.nextLine();
